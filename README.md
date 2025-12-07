@@ -4,6 +4,8 @@ A Visual Studio Code extension that tracks and displays your Claude Code usage s
 
 ## Features
 
+- **Sidebar Panel**: Quick access usage overview right in the activity bar
+- **Full Dashboard**: Detailed analytics in a dedicated panel
 - **Real-time Cost Monitoring**: Track your spending across all Claude API calls
 - **Token Consumption Breakdown**: View detailed breakdowns of input, output, and cache tokens
 - **Multi-perspective Analysis**: Analyze usage by model, project, session, or timeline
@@ -20,6 +22,21 @@ The extension supports cost calculation for all Claude model variants:
 - **Haiku**: 4.5, 3.5, 3
 
 ## Installation
+
+### From VS Code Marketplace
+
+1. Open VS Code
+2. Go to Extensions (`Cmd+Shift+X` / `Ctrl+Shift+X`)
+3. Search for "Claude Code Usage"
+4. Click Install
+
+### From VSIX File
+
+1. Download the `.vsix` file from [Releases](https://github.com/Zollicoff/Claude_Code_Usage_VSC_Extension/releases)
+2. Open VS Code
+3. Press `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Windows/Linux)
+4. Type "Extensions: Install from VSIX"
+5. Select the downloaded `.vsix` file
 
 ### From Source
 
@@ -41,29 +58,33 @@ The extension supports cost calculation for all Claude model variants:
 
 4. Package the extension:
    ```bash
-   npx vsce package
+   npx @vscode/vsce package
    ```
 
-5. Install the generated `.vsix` file:
-   - Open VS Code
-   - Press `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Windows/Linux)
-   - Type "Extensions: Install from VSIX"
-   - Select the generated `.vsix` file
-
-### Development
-
-1. Open the project in VS Code
-2. Press `F5` (or `Fn+F5` on macOS) to launch the Extension Development Host
-3. In the new window, run the "Claude Code: Show Usage Dashboard" command
+5. Install the generated `.vsix` file via the method above
 
 ## Usage
 
-### Commands
+### Sidebar Panel
+
+Click the chart icon in the activity bar (left sidebar) to open the usage overview panel. This compact view shows:
+
+- Total cost and session count
+- Token breakdown (input/output/cache)
+- Top 3 models by cost
+- Top 3 projects by cost
+- Quick time range filter (7D/30D/All)
+
+### Full Dashboard
+
+For detailed analytics, open the full dashboard:
 
 | Command | Keybinding | Description |
 |---------|------------|-------------|
-| `Claude Code: Show Usage Dashboard` | `Cmd+Shift+U` (macOS) / `Ctrl+Shift+U` (Windows/Linux) | Open the usage dashboard |
-| `Claude Code: Refresh Usage Data` | - | Refresh the dashboard data |
+| `Claude Code: Show Usage Dashboard` | `Cmd+Shift+U` (macOS) / `Ctrl+Shift+U` (Windows/Linux) | Open the full dashboard |
+| `Claude Code: Refresh Usage Data` | - | Refresh all usage data |
+
+You can also click "Open Full Dashboard" from the sidebar panel.
 
 ### Dashboard Sections
 
@@ -118,18 +139,25 @@ All data processing happens locally on your machine. The extension:
 ```
 .
 ├── src/
-│   ├── extension.ts           # Extension entry point
+│   ├── extension.ts              # Extension entry point
 │   ├── types/
-│   │   └── usage.ts           # TypeScript interfaces
+│   │   └── usage.ts              # TypeScript interfaces
 │   ├── services/
-│   │   ├── logParser.ts       # Log file parsing logic
-│   │   └── pricing.ts         # Model pricing calculations
+│   │   ├── logParser.ts          # Log file parsing logic
+│   │   └── pricing.ts            # Model pricing calculations
 │   └── webview/
-│       └── dashboardPanel.ts  # Dashboard UI webview
-├── package.json               # Extension manifest
-├── tsconfig.json              # TypeScript configuration
-└── webpack.config.js          # Build configuration
+│       ├── dashboardPanel.ts     # Full dashboard webview
+│       └── sidebarProvider.ts    # Sidebar panel webview
+├── media/
+│   └── icon.svg                  # Activity bar icon
+├── package.json                  # Extension manifest
+├── tsconfig.json                 # TypeScript configuration
+└── webpack.config.js             # Build configuration
 ```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
