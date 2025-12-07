@@ -25,9 +25,12 @@ The extension supports cost calculation for all Claude model variants:
 
 ### From VS Code Marketplace
 
+**[Install from Marketplace](https://marketplace.visualstudio.com/items?itemName=zollicoff.claude-code-cli-usage)**
+
+Or manually:
 1. Open VS Code
 2. Go to Extensions (`Cmd+Shift+X` / `Ctrl+Shift+X`)
-3. Search for "Claude Code Usage"
+3. Search for "Claude Code CLI Usage"
 4. Click Install
 
 ### From VSIX File
