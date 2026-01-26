@@ -12,6 +12,7 @@ A Visual Studio Code extension that tracks and displays your Claude Code CLI usa
 - **Time Range Filtering**: Filter data by 7 days, 30 days, or all-time
 - **Daily Usage Charts**: Visualize your usage patterns over time
 - **Session Tracking**: View individual session statistics and costs
+- **Persistent History**: Caches usage data locally so historical data is preserved even after Claude Code prunes old logs
 
 ## Supported Models
 
@@ -124,6 +125,10 @@ The extension reads Claude Code session logs from `~/.claude/projects/`. Each pr
 
 If cost data is not present in the logs, the extension calculates costs based on current Anthropic API pricing.
 
+### Data Persistence
+
+Claude Code automatically prunes session logs after approximately 30 days. To preserve your historical usage data, this extension maintains a local cache at `~/.claude-code-usage/cache.json`. Each time you view usage data, the extension merges cached historical data with fresh logs, ensuring you never lose access to your usage history.
+
 ## Data Privacy
 
 All data processing happens locally on your machine. The extension:
@@ -147,7 +152,8 @@ All data processing happens locally on your machine. The extension:
 │   │   └── usage.ts              # TypeScript interfaces
 │   ├── services/
 │   │   ├── logParser.ts          # Log file parsing logic
-│   │   └── pricing.ts            # Model pricing calculations
+│   │   ├── pricing.ts            # Model pricing calculations
+│   │   └── cacheManager.ts       # Historical data persistence
 │   └── webview/
 │       ├── dashboardPanel.ts     # Full dashboard webview
 │       └── sidebarProvider.ts    # Sidebar panel webview

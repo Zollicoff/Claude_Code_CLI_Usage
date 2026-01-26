@@ -17,6 +17,7 @@ import {
   TimeRange
 } from '../types/usage';
 import { calculateCost } from './pricing';
+import { loadCache, saveCache, mergeEntries } from './cacheManager';
 
 /**
  * Get the Claude projects directory path
@@ -164,9 +165,9 @@ function parseJsonlFile(
 }
 
 /**
- * Get all usage entries from Claude Code logs
+ * Get all usage entries from Claude Code logs (internal, without cache)
  */
-export function getAllUsageEntries(): UsageEntry[] {
+function getLiveUsageEntries(): UsageEntry[] {
   const projectsDir = getClaudeProjectsPath();
   const allEntries: UsageEntry[] = [];
   const processedHashes = new Set<string>();
@@ -207,6 +208,31 @@ export function getAllUsageEntries(): UsageEntry[] {
   allEntries.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
 
   return allEntries;
+}
+
+/**
+ * Get all usage entries from Claude Code logs
+ * Merges cached historical data with live JSONL data
+ */
+export function getAllUsageEntries(): UsageEntry[] {
+  // Load cached entries
+  const cachedData = loadCache();
+  const cachedEntries = cachedData.entries;
+
+  // Get live entries from JSONL files
+  const liveEntries = getLiveUsageEntries();
+
+  // Merge and deduplicate (live entries take precedence)
+  const mergedEntries = mergeEntries(cachedEntries, liveEntries);
+
+  // Save the merged data back to cache
+  saveCache({
+    version: cachedData.version,
+    lastUpdated: new Date().toISOString(),
+    entries: mergedEntries,
+  });
+
+  return mergedEntries;
 }
 
 /**

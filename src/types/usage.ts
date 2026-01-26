@@ -90,6 +90,13 @@ export interface JsonlEntry {
 
 export type TimeRange = '7d' | '30d' | 'all';
 
+// Cache structure for persistent storage
+export interface CachedData {
+  version: number;
+  lastUpdated: string;
+  entries: UsageEntry[];
+}
+
 export interface DashboardState {
   stats: UsageStats | null;
   sessions: SessionUsage[];
