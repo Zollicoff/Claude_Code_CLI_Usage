@@ -21,7 +21,9 @@
     "tokens"
   ],
   "activationEvents": [
-    "onView:claudeCodeUsage"
+    "onView:claudeCodeUsage",
+    "onCommand:claude-code-usage.showDashboard",
+    "onCommand:claude-code-usage.refreshData"
   ],
   "main": "./dist/extension.js",
   "icon": "media/icon.png",

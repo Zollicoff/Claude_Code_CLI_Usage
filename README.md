@@ -147,21 +147,39 @@ All data processing happens locally on your machine. The extension:
 ```
 .
 ├── src/
-│   ├── extension.ts              # Extension entry point
-│   ├── types/
-│   │   └── usage.ts              # TypeScript interfaces
-│   ├── services/
-│   │   ├── logParser.ts          # Log file parsing logic
-│   │   ├── pricing.ts            # Model pricing calculations
-│   │   └── cacheManager.ts       # Historical data persistence
+│   ├── extension.ts                # Extension entry point
+│   ├── types.ts                    # Shared TypeScript interfaces
+│   ├── cache.ts                    # Historical data persistence
+│   ├── pricing/
+│   │   ├── models.ts               # Model table (source of truth)
+│   │   ├── calculator.ts           # Cost calculation
+│   │   └── index.ts                # matchModel + getModelDisplayName
+│   ├── parser/
+│   │   ├── files.ts                # JSONL file discovery
+│   │   ├── jsonl.ts                # JSONL entry parsing
+│   │   └── index.ts                # Live + cached entry composition
+│   ├── aggregator/
+│   │   ├── filters.ts              # Time-range filtering
+│   │   ├── stats.ts                # Usage statistics aggregation
+│   │   ├── sessions.ts             # Session-level rollups
+│   │   └── index.ts
 │   └── webview/
-│       ├── dashboardPanel.ts     # Full dashboard webview
-│       └── sidebarProvider.ts    # Sidebar panel webview
+│       ├── shared/                 # escape/CSP/formatters/messaging
+│       ├── dashboard/              # Dashboard template + panel
+│       ├── sidebar/                # Sidebar template + provider
+│       └── assets/                 # CSS + client JS (loaded via asWebviewUri)
+├── test/
+│   ├── fixtures/                   # JSONL + cache fixtures
+│   ├── pricing.test.ts
+│   ├── cache.test.ts
+│   ├── parser.test.ts
+│   └── aggregator.test.ts
 ├── media/
-│   └── icon.svg                  # Activity bar icon
-├── package.json                  # Extension manifest
-├── tsconfig.json                 # TypeScript configuration
-└── webpack.config.js             # Build configuration
+│   └── icon.svg
+├── package.json
+├── tsconfig.json / tsconfig.test.json
+├── eslint.config.js
+└── webpack.config.js
 ```
 
 ## Contributing
