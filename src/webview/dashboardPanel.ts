@@ -4,7 +4,8 @@
 
 import * as vscode from 'vscode';
 import { UsageStats, SessionUsage, TimeRange } from '../types';
-import { getAllUsageEntries, filterByTimeRange, aggregateStats, getSessionStats } from '../services/logParser';
+import { getAllUsageEntries } from '../parser';
+import { filterByTimeRange, aggregateStats, getSessionStats } from '../aggregator';
 import { getModelDisplayName } from '../pricing';
 
 export class DashboardPanel {

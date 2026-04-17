@@ -5,7 +5,8 @@
 
 import * as vscode from 'vscode';
 import { UsageStats, TimeRange } from '../types';
-import { getAllUsageEntries, filterByTimeRange, aggregateStats } from '../services/logParser';
+import { getAllUsageEntries } from '../parser';
+import { filterByTimeRange, aggregateStats } from '../aggregator';
 import { getModelDisplayName } from '../pricing';
 
 export class SidebarProvider implements vscode.WebviewViewProvider {
