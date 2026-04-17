@@ -111,7 +111,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Zollicoff/Claude_Code_Usage_VSC_Extension"
+    "url": "https://github.com/Zollicoff/Claude_Code_CLI_Usage"
   },
   "license": "MIT"
 }

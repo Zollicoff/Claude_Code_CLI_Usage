@@ -36,7 +36,7 @@ Or manually:
 
 ### From VSIX File
 
-1. Download the `.vsix` file from [Releases](https://github.com/Zollicoff/Claude_Code_Usage_VSC_Extension/releases)
+1. Download the `.vsix` file from [Releases](https://github.com/Zollicoff/Claude_Code_CLI_Usage/releases)
 2. Open VS Code
 3. Press `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Windows/Linux)
 4. Type "Extensions: Install from VSIX"
@@ -46,8 +46,8 @@ Or manually:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Zollicoff/Claude_Code_Usage_VSC_Extension.git
-   cd Claude_Code_Usage_VSC_Extension
+   git clone https://github.com/Zollicoff/Claude_Code_CLI_Usage.git
+   cd Claude_Code_CLI_Usage
    ```
 
 2. Install dependencies:
