@@ -2,7 +2,7 @@
   "name": "claude-code-cli-usage",
   "displayName": "Claude Code CLI Usage",
   "description": "Track your Claude Code usage, costs, and analytics directly in VS Code",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "zollicoff",
   "engines": {
     "vscode": "^1.85.0"
