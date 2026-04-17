@@ -15,7 +15,7 @@ import {
   SessionUsage,
   JsonlEntry,
   TimeRange
-} from '../types/usage';
+} from '../types';
 import { calculateCost } from '../pricing';
 import { loadCache, saveCache, mergeEntries } from './cacheManager';
 
@@ -443,7 +443,6 @@ export function getSessionStats(entries: UsageEntry[]): SessionUsage[] {
     let cacheCreationTokens = 0;
     let cacheReadTokens = 0;
     let startTime = sessionEntries[0].timestamp;
-    let endTime = sessionEntries[0].timestamp;
 
     for (const entry of sessionEntries) {
       models.add(entry.model);
@@ -454,7 +453,6 @@ export function getSessionStats(entries: UsageEntry[]): SessionUsage[] {
       cacheReadTokens += entry.cacheReadTokens;
 
       if (entry.timestamp < startTime) startTime = entry.timestamp;
-      if (entry.timestamp > endTime) endTime = entry.timestamp;
     }
 
     sessions.push({
@@ -468,7 +466,6 @@ export function getSessionStats(entries: UsageEntry[]): SessionUsage[] {
       cacheCreationTokens,
       cacheReadTokens,
       startTime,
-      endTime,
       modelsUsed: Array.from(models),
     });
   }

@@ -1,7 +1,3 @@
-/**
- * Types for Claude Code usage tracking
- */
-
 export interface UsageEntry {
   timestamp: string;
   model: string;
@@ -65,11 +61,9 @@ export interface SessionUsage {
   cacheCreationTokens: number;
   cacheReadTokens: number;
   startTime: string;
-  endTime: string;
   modelsUsed: string[];
 }
 
-// Raw JSONL entry structure from Claude Code logs
 export interface JsonlEntry {
   timestamp: string;
   message?: {
@@ -90,17 +84,8 @@ export interface JsonlEntry {
 
 export type TimeRange = '7d' | '30d' | 'all';
 
-// Cache structure for persistent storage
 export interface CachedData {
   version: number;
   lastUpdated: string;
   entries: UsageEntry[];
-}
-
-export interface DashboardState {
-  stats: UsageStats | null;
-  sessions: SessionUsage[];
-  timeRange: TimeRange;
-  loading: boolean;
-  error: string | null;
 }

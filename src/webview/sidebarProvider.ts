@@ -4,7 +4,7 @@
  */
 
 import * as vscode from 'vscode';
-import { UsageStats, TimeRange } from '../types/usage';
+import { UsageStats, TimeRange } from '../types';
 import { getAllUsageEntries, filterByTimeRange, aggregateStats } from '../services/logParser';
 import { getModelDisplayName } from '../pricing';
 

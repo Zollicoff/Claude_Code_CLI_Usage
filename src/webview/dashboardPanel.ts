@@ -3,7 +3,7 @@
  */
 
 import * as vscode from 'vscode';
-import { UsageStats, SessionUsage, TimeRange } from '../types/usage';
+import { UsageStats, SessionUsage, TimeRange } from '../types';
 import { getAllUsageEntries, filterByTimeRange, aggregateStats, getSessionStats } from '../services/logParser';
 import { getModelDisplayName } from '../pricing';
 

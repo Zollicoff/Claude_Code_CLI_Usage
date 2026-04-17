@@ -6,7 +6,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
-import { UsageEntry, CachedData } from '../types/usage';
+import { UsageEntry, CachedData } from '../types';
 
 const CACHE_VERSION = 1;
 const CACHE_DIR = '.claude-code-usage';
