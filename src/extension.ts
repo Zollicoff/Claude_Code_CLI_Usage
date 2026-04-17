@@ -4,7 +4,7 @@
  */
 
 import * as vscode from 'vscode';
-import { DashboardPanel } from './webview/dashboardPanel';
+import { DashboardPanel } from './webview/dashboard/panel';
 import { SidebarProvider } from './webview/sidebarProvider';
 
 export function activate(context: vscode.ExtensionContext) {
