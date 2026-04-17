@@ -1,0 +1,2 @@
+{"timestamp":"2026-04-11T09:00:00Z","sessionId":"sess-b","requestId":"r3","cwd":"/home/u/proj-b","message":{"id":"m3","model":"claude-sonnet-4-5","usage":{"input_tokens":0,"output_tokens":0}}}
+{"timestamp":"2026-04-11T09:01:00Z","sessionId":"sess-b","requestId":"r4","cwd":"/home/u/proj-b","costUSD":0.123,"message":{"id":"m4","model":"claude-sonnet-4-5","usage":{"input_tokens":50,"output_tokens":25}}}

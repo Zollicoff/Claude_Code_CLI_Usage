@@ -1,0 +1,2 @@
+{"timestamp":"2026-04-12T09:00:00Z","sessionId":"sess-c","requestId":"r5","cwd":"/home/u/proj-c","message":{"id":"m5","model":"claude-haiku-4-5","usage":{"input_tokens":10,"output_tokens":5}}}
+{"timestamp":"2026-04-12T09:00:00Z","sessionId":"sess-c","requestId":"r5","cwd":"/home/u/proj-c","message":{"id":"m5","model":"claude-haiku-4-5","usage":{"input_tokens":10,"output_tokens":5}}}
