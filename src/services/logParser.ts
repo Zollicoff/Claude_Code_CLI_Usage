@@ -17,7 +17,7 @@ import {
   TimeRange
 } from '../types';
 import { calculateCost } from '../pricing';
-import { loadCache, saveCache, mergeEntries } from './cacheManager';
+import { loadCache, saveCache, mergeEntries } from '../cache';
 
 /**
  * Get the Claude projects directory path
