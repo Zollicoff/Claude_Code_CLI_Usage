@@ -6,7 +6,7 @@
 import * as vscode from 'vscode';
 import { UsageStats, TimeRange } from '../types/usage';
 import { getAllUsageEntries, filterByTimeRange, aggregateStats } from '../services/logParser';
-import { getModelDisplayName } from '../services/pricing';
+import { getModelDisplayName } from '../pricing';
 
 export class SidebarProvider implements vscode.WebviewViewProvider {
   public static readonly viewType = 'claudeCodeUsage';

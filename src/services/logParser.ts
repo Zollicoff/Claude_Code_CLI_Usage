@@ -16,7 +16,7 @@ import {
   JsonlEntry,
   TimeRange
 } from '../types/usage';
-import { calculateCost } from './pricing';
+import { calculateCost } from '../pricing';
 import { loadCache, saveCache, mergeEntries } from './cacheManager';
 
 /**

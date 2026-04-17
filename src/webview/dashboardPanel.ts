@@ -5,7 +5,7 @@
 import * as vscode from 'vscode';
 import { UsageStats, SessionUsage, TimeRange } from '../types/usage';
 import { getAllUsageEntries, filterByTimeRange, aggregateStats, getSessionStats } from '../services/logParser';
-import { getModelDisplayName } from '../services/pricing';
+import { getModelDisplayName } from '../pricing';
 
 export class DashboardPanel {
   public static currentPanel: DashboardPanel | undefined;
