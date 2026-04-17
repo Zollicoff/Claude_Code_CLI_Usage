@@ -5,7 +5,7 @@
 
 import * as vscode from 'vscode';
 import { DashboardPanel } from './webview/dashboard/panel';
-import { SidebarProvider } from './webview/sidebarProvider';
+import { SidebarProvider } from './webview/sidebar/provider';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Claude Code Usage extension is now active');
