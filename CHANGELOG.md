@@ -2,6 +2,17 @@
 
 All notable changes to this extension are documented here.
 
+## 0.1.4 — 2026-04-16
+
+### Added
+- Claude Opus 4.7 pricing (input $5 / output $25 / cache write $6.25 / cache read $0.50 per million tokens).
+- Claude Opus 4.6 pricing (same tier as 4.5 and 4.7).
+- Claude Sonnet 4.6 pricing (input $3 / output $15 / cache write $3.75 / cache read $0.30).
+- Tests covering 4.7 / 4.6 matching and cost calculation.
+
+### Fixed
+- `tsconfig.test.json` now defines its own `exclude` so `test/**/*.ts` actually compiles when `out/` is clean.
+
 ## 0.1.3 — 2026-04-16
 
 ### Security

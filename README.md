@@ -18,8 +18,8 @@ A Visual Studio Code extension that tracks and displays your Claude Code CLI usa
 
 The extension supports cost calculation for all Claude model variants:
 
-- **Opus**: 4.5, 4.1, 4, 3
-- **Sonnet**: 4.5, 4, 3.7, 3.5
+- **Opus**: 4.7, 4.6, 4.5, 4.1, 4, 3
+- **Sonnet**: 4.6, 4.5, 4, 3.7, 3.5
 - **Haiku**: 4.5, 3.5, 3
 
 ## Installation

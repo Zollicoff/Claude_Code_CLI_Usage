@@ -8,6 +8,23 @@ describe('pricing', () => {
     assert.strictEqual(matchModel('claude-opus-4-20250401')?.id, 'opus-4');
   });
 
+  it('matches opus 4.7 and 4.6', () => {
+    assert.strictEqual(matchModel('claude-opus-4-7')?.id, 'opus-4.7');
+    assert.strictEqual(matchModel('claude-opus-4-6-20260201')?.id, 'opus-4.6');
+  });
+
+  it('matches sonnet 4.6 before sonnet 4', () => {
+    assert.strictEqual(matchModel('claude-sonnet-4-6-20260101')?.id, 'sonnet-4.6');
+  });
+
+  it('Opus 4.7 priced $5/$25 per million', () => {
+    assert.strictEqual(calculateCost('claude-opus-4-7', 1_000_000, 1_000_000, 0, 0), 30);
+  });
+
+  it('Sonnet 4.6 priced $3/$15 per million', () => {
+    assert.strictEqual(calculateCost('claude-sonnet-4-6', 1_000_000, 1_000_000, 0, 0), 18);
+  });
+
   it('returns 0 for unknown models', () => {
     assert.strictEqual(calculateCost('unknown-model', 1000, 1000, 0, 0), 0);
   });
